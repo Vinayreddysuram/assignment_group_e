@@ -12,6 +12,42 @@
         <p>Your Education Partner</p>
         <p class="contact">Contact us at: contact@Optcloudlearning.com</p>
         <a href="index2.html" class="btn">View All Courses</a>
+
+        <!-- Place to insert courses -->
+        <div id="courses" class="courses"></div>
     </div>
+
+    <!-- JavaScript to Fetch and Display Data -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://api.npoint.io/6e2812f4f7df879881ae') // Replace with your actual API endpoint
+                .then(response => response.json())
+                .then(data => {
+                    const coursesContainer = document.getElementById('courses');
+                    data.modules.forEach(module => {
+                        const moduleEl = document.createElement('div');
+                        moduleEl.classList.add('module');
+
+                        const title = document.createElement('h2');
+                        title.textContent = module.moduleTitle;
+                        moduleEl.appendChild(title);
+
+                        const list = document.createElement('ul');
+                        module.topics.forEach(topic => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = topic;
+                            list.appendChild(listItem);
+                        });
+                        moduleEl.appendChild(list);
+
+                        coursesContainer.appendChild(moduleEl);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    coursesContainer.textContent = 'Error loading courses.';
+                });
+        });
+    </script>
 </body>
 </html>
