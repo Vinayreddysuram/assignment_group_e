@@ -1,0 +1,30 @@
+body {
+    background-image: url('computer.png'); /* Path to your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent white background to the container for readability */
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.contact {
+    font-style: italic;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
